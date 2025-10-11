@@ -16,7 +16,7 @@ app.add_middleware(RateLimitMiddleware)
 # CORS middleware (after rate limiting)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.FRONTEND_URL, "http://localhost:5173"],
+    allow_origins=[settings.FRONTEND_URL, "http://localhost:5173", "http://localhost:8080"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

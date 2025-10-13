@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reservation — Restro</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">Restro</div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="reservation.html" class="active">Reservation</a>
+      </nav>
+      <button class="btn-primary nav-cta" onclick="location.href='reservation.html'">Book</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <h1>Reserve a table</h1>
+      <p class="lead">Quick booking for lunch, dinner or private events. We'll send confirmation by email or phone.</p>
+
+      <div class="reservation-grid">
+        <form id="reservationForm" class="reservation-form">
+          <label>Full name<input name="name" required></label>
+          <label>Email<input name="email" type="email" required></label>
+          <label>Phone<input name="phone"></label>
+          <label>Date<input name="date" type="date" required></label>
+          <label>Time<select name="time" required>
+              <option>18:00</option>
+              <option>18:30</option>
+              <option>19:00</option>
+              <option>19:30</option>
+            </select></label>
+          <label>Guests<input name="guests" type="number" min="1" max="20" value="2"></label>
+          <button class="btn-primary" type="submit">Request Reservation</button>
+        </form>
+
+        <aside class="reservation-info">
+          <h3>Our location</h3>
+          <p>123 Food Lane, London</p>
+          <div class="map-placeholder">Map would go here (replace with embedded map)</div>
+          <h4>Private events</h4>
+          <p>Contact us for group bookings and event menus.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container small">© 2025 Restro</div>
+  </footer>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Testimonials — Restro</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">Restro</div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html" class="active">Testimonials</a>
+      </nav>
+      <button class="btn-primary nav-cta" onclick="location.href='reservation.html'">Book</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <h1>What Guests Say</h1>
+      <p class="lead">Real feedback from real customers.</p>
+
+      <div class="grid-3">
+        <blockquote class="review">
+          <p>“We celebrated our anniversary here — the food and service were outstanding.”</p>
+          <cite>— Alex P.</cite>
+        </blockquote>
+
+        <blockquote class="review">
+          <p>“Quick takeaway, everything arrived hot and perfectly packaged.”</p>
+          <cite>— Maya K.</cite>
+        </blockquote>
+
+        <blockquote class="review">
+          <p>“The chocolate tart is worth the trip alone.”</p>
+          <cite>— Peter R.</cite>
+        </blockquote>
+      </div>
+
+      <div class="write-review">
+        <h3>Leave your own review</h3>
+        <form id="reviewForm">
+          <input name="name" placeholder="Your name" required />
+          <textarea name="review" placeholder="What did you enjoy?" required></textarea>
+          <button class="btn-primary" type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container small">© 2025 Restro</div>
+  </footer>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

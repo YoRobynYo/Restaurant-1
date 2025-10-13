@@ -1,17 +1,31 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from pydantic import BaseModel
-from ..services.ai_svc import assistant_reply  # adjust path if needed
+from app.services.ai_client import get_ai_client
 
 router = APIRouter()
 
+# --- SETUP ---
 class ChatRequest(BaseModel):
-    user_input: str
-    user_email: str | None = None
+    message: str
+
+ai_client = get_ai_client()
+
+# Load the restaurant context from the separate text file
+with open("app/chat/restaurant_context.txt", "r") as f:
+    restaurant_context = f.read()
+
 
 @router.post("/chat")
-async def chat_rest(req: ChatRequest):
+async def handle_chat(request: ChatRequest):
+    """Handles incoming chat messages and returns an AI-generated response."""
+    messages = [
+        {'role': 'system', 'content': restaurant_context},
+        {'role': 'user', 'content': request.message}
+    ]
+    
     try:
-        reply = await assistant_reply(req.user_input, user_email=req.user_email)
-        return {"reply": reply}
+        ai_response = ai_client.chat_completion(messages=messages)
+        return {"reply": ai_response}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"Error communicating with AI client: {e}")
+        return {"error": "An internal error occurred while processing the request."}, 500

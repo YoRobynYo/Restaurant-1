@@ -1,7 +1,7 @@
 from .chat.chat_api import router as chat_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .middleware.rate_limiter import RateLimitMiddleware  # ← ADDED: Rate limiter import
+from .middleware.rate_limiter import RateLimitMiddleware
 from sqlalchemy.orm import Session
 from .config import settings
 from .db import init_db, SessionLocal
@@ -10,7 +10,7 @@ from .routes import users, products, checkout, stripe_webhooks, orders, analytic
 
 app = FastAPI(title="AI Commerce Backend")
 
-# ✅ ADD RATE LIMITING MIDDLEWARE FIRST
+# ADD RATE LIMITING MIDDLEWARE FIRST
 app.add_middleware(RateLimitMiddleware)
 
 # CORS middleware (after rate limiting)
@@ -29,7 +29,6 @@ app.include_router(products.router, prefix="/api", tags=["products"])
 app.include_router(checkout.router, prefix="/api", tags=["checkout"])
 app.include_router(stripe_webhooks.router, prefix="/api", tags=["stripe"])
 app.include_router(orders.router, prefix="/api", tags=["orders"])
-# app.include_router(ai.router, prefix="/api", tags=["ai"])  # removed
 app.include_router(analytics.router, prefix="/api", tags=["analytics"])
 
 @app.on_event("startup")

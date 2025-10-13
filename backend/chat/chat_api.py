@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from app.services.ai_client import get_ai_client
+from backend.services.ai_client import get_ai_client
 
 router = APIRouter()
 
@@ -11,7 +11,7 @@ class ChatRequest(BaseModel):
 ai_client = get_ai_client()
 
 # Load the restaurant context from the separate text file
-with open("app/chat/restaurant_context.txt", "r") as f:
+with open("backend/chat/restaurant_context.txt", "r") as f:
     restaurant_context = f.read()
 
 

@@ -13,11 +13,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Event Listeners ---
-    // Show/hide the chat widget
-    chatToggle.addEventListener('click', () => {
-        // This is a simple way to hide/show. You can make it fancier later.
-        chatWidget.style.display = 'none'; 
-    });
+    // A variable to keep track of whether the chat is open or closed
+let isChatOpen = true; 
+
+// This button will now open AND close the chat
+chatToggle.addEventListener('click', () => {
+    if (isChatOpen) {
+        // If it's open, hide the main chat area and change the button text
+        chatMessages.style.display = 'none';
+        chatInput.parentElement.style.display = 'none';
+        chatToggle.textContent = '↑'; // Change to an "open" icon
+        isChatOpen = false;
+    } else {
+        // If it's closed, show the main chat area and change the button text back
+        chatMessages.style.display = 'flex';
+        chatInput.parentElement.style.display = 'flex';
+        chatToggle.textContent = '×'; // Change back to a "close" icon
+        isChatOpen = true;
+    }
+});
 
     // Send message when the "Send" button is clicked
     chatSend.addEventListener('click', sendMessage);

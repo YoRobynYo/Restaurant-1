@@ -28,8 +28,8 @@ body {
   padding: 24px
 }
 
-.small {
-  padding: 12px
+.lead {
+  color: $muted;
 }
 
 /* Header */
@@ -64,10 +64,6 @@ body {
   font-weight: 600
 }
 
-.nav-cta {
-  margin-left: 12px
-}
-
 /* Buttons */
 .btn-primary {
   background: $accent;
@@ -78,15 +74,38 @@ body {
   display: inline-block
 }
 
-.btn-outline {
-  border: 2px solid $accent;
-  padding: 8px 14px;
-  border-radius: 8px;
-  color: $accent;
-  text-decoration: none
+/* --- ✅ NEW: GLOBAL CARD STYLE --- */
+/* Global Card Style (for Menu, Gallery, Homepage, etc.) */
+.dish-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .04);
 }
 
-/* Hero */
+.dish-card img {
+  width: 100%;
+  height: 200px;
+  /* This sets the consistent image height */
+  object-fit: cover;
+}
+
+.dish-card figcaption {
+  padding: 12px;
+}
+
+/* Global Grid Style */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* This is the fix: Force exactly 3 columns */
+  gap: 24px;
+  /* This adds a bit more space like we wanted */
+}
+
+/* --- END IMPROVED GRID SYSTEM --- */
+
+/* Hero Section */
 .hero {
   padding: 48px 0
 }
@@ -103,10 +122,6 @@ body {
   margin: 0
 }
 
-.lead {
-  color: $muted
-}
-
 .hero-media img {
   width: 100%;
   height: 360px;
@@ -114,159 +129,7 @@ body {
   border-radius: 12px
 }
 
-.hero-actions {
-  margin-top: 16px;
-  display: flex;
-  gap: 12px
-}
-
-.hero-stats {
-  display: flex;
-  gap: 18px;
-  margin-top: 18px
-}
-
-.stat-value {
-  font-weight: 700
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: $muted
-}
-
-/* Features */
-.features {
-  padding-top: 20px
-}
-
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 18px
-}
-
-.feature {
-  background: white;
-  padding: 18px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .04)
-}
-
-.feature .icon {
-  font-size: 28px
-}
-
-/* Featured dishes */
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px
-}
-
-.dish-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .04)
-}
-
-.dish-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover
-}
-
-.dish-card figcaption {
-  padding: 12px
-}
-
-.price {
-  font-weight: 700;
-  margin-top: 8px
-}
-
-/* Testimonial */
-.testimonial {
-  background: #fff2e6;
-  padding: 28px;
-  border-radius: 10px;
-  margin-top: 20px
-}
-
-.testimonial blockquote {
-  margin: 0;
-  font-size: 1.05rem
-}
-
-.testimonial cite {
-  display: block;
-  margin-top: 8px;
-  color: $muted
-}
-
-/* Menu page */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
-  margin-top: 18px
-}
-
-.menu-category {
-  background: white;
-  padding: 16px;
-  border-radius: 10px
-}
-
-.menu-category ul {
-  list-style: none;
-  padding: 0;
-  margin: 0
-}
-
-.menu-category li {
-  display: flex;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px dashed #eee
-}
-
-.menu-category img {
-  width: 84px;
-  height: 64px;
-  object-fit: cover;
-  border-radius: 8px
-}
-
-.menu-item .name {
-  font-weight: 700
-}
-
-.menu-item .desc {
-  color: $muted
-}
-
-.menu-item .price {
-  margin-top: 6px;
-  font-weight: 600
-}
-
-/* Gallery */
-.masonry {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 8px
-}
-
-.masonry img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 8px
-}
-
-/* About / team / posts */
+/* About / team / etc. */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 420px;
@@ -274,55 +137,57 @@ body {
   align-items: center
 }
 
-.values .grid-3 {
+/* Menu */
+.menu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Responsive columns */
+  gap: 24px;
+  margin-top: 24px;
 }
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.menu-category {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  /* A very subtle border */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .03);
+  /* A very subtle shadow */
+}
+
+.menu-category h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.menu-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-category li {
+  display: flex;
+  justify-content: space-between;
   gap: 12px;
-  text-align: center
+  padding: 10px 0;
+  border-bottom: 1px dashed #eee;
 }
 
-.team-grid .member img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 8px
+.menu-category li:last-child {
+  border-bottom: none;
 }
 
-/* forms */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px
+.menu-item .name {
+  font-weight: 700;
 }
 
-input,
-textarea,
-select {
-  padding: 10px;
-  border: 1px solid #e6e6e6;
-  border-radius: 8px
-}
-
-.reservation-grid {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 20px
-}
-
-.map-placeholder {
-  height: 200px;
-  background: #f3f3f3;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $muted
+.menu-item .desc {
+  color: $muted;
+  font-size: 0.9rem;
 }
 
 /* footer */
@@ -333,31 +198,25 @@ select {
   margin-top: 40px
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px
-}
+/* --- ✅ NEW: IMPROVED RESPONSIVE STYLES --- */
+@media (max-width: 900px) {
 
-/* utilities */
-@media (max-width:900px) {
-  .hero-grid {
-    grid-template-columns: 1fr
-  }
-
+  .hero-grid,
   .about-grid {
-    grid-template-columns: 1fr
-  }
-
-  .reservation-grid {
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
   }
 
   .grid-3 {
-    grid-template-columns: 1fr
-  }
-
-  .grid-4 {
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns on tablets */
   }
 }
+
+@media (max-width: 600px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+    /* 1 column on mobile phones */
+  }
+}
+
+/* --- END RESPONSIVE STYLES --- */

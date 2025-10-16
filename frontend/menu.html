@@ -1,77 +1,163 @@
-<main class="menu-page container">
-  <h1>Our Menu</h1>
-  <p>Discover delicious dishes served fresh from morning till evening.</p>
+<!DOCTYPE html>
+<html lang="en">
 
-  <!-- Search bar -->
-  <div class="menu-search">
-    <input type="text" id="menuSearch" placeholder="Search dishes...">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Menu - Restro</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Restro</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <!-- This is the consistent CTA on every page -->
+      <nav class="nav-cta">
+        <a href="reservation.html" class="btn-primary">Book a Reservation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Our Menu</h1>
+      <p class="lead">Fresh ingredients, classic flavors. Every dish is prepared with care, just for you.</p>
+
+      <div class="menu-grid" style="margin-top: 24px;">
+        <!-- Appetizers Category -->
+        <div class="menu-category">
+          <h2>Appetizers</h2>
+          <ul>
+            <li>
+              <div class="menu-item">
+                <div class="name">Firewall Fries</div>
+                <div class="desc">Crispy fries tossed in a spicy seasoning.</div>
+              </div>
+              <div class="price">£4.50</div>
+            </li>
+            <li>
+              <div class="menu-item">
+                <div class="name">Onion Rings</div>
+                <div class="desc">Classic beer-battered onion rings with a side of aioli.</div>
+              </div>
+              <div class="price">£5.00</div>
+            </li>
+            <li>
+              <div class="menu-item">
+                <div class="name">Mozzarella Sticks</div>
+                <div class="desc">Golden-fried mozzarella with a marinara dipping sauce.</div>
+              </div>
+              <div class="price">£6.00</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Burgers Category -->
+        <div class="menu-category">
+          <h2>Burgers</h2>
+          <ul>
+            <li>
+              <div class="menu-item">
+                <div class="name">The Classic Diner Burger</div>
+                <div class="desc">6oz beef patty, lettuce, tomato, onion, and our special sauce.</div>
+              </div>
+              <div class="price">£12.00</div>
+            </li>
+            <li>
+              <div class="menu-item">
+                <div class="name">Mega Burger</div>
+                <div class="desc">Two 6oz beef patties, double cheese, bacon, onion rings, and BBQ sauce.</div>
+              </div>
+              <div class="price">£16.00</div>
+            </li>
+            <li>
+              <div class="menu-item">
+                <div class="name">Veggie Burger</div>
+                <div class="desc">A plant-based patty with avocado, lettuce, and tomato.</div>
+              </div>
+              <div class="price">£11.50</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Main Courses Category -->
+        <div class="menu-category">
+          <h2>Main Courses</h2>
+          <ul>
+            <li>
+              <div class="menu-item">
+                <div class="name">Firewall Fish & Chips</div>
+                <div class="desc">Beer-battered cod served with thick-cut chips and mushy peas.</div>
+              </div>
+              <div class="price">£14.00</div>
+            </li>
+            <li>
+              <div class="menu-item">
+                <div class="name">Roast Dinner Sunday</div>
+                <div class="desc">Slow-roasted beef or pork with roasted potatoes and vegetables.</div>
+              </div>
+              <div class="price">£17.00</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Desserts Category -->
+        <div class="menu-category">
+          <h2>Desserts</h2>
+          <ul>
+            <li>
+              <div class="menu-item">
+                <div class="name">Apple Pie</div>
+                <div class="desc">Served warm with a scoop of vanilla ice cream.</div>
+              </div>
+              <div class="price">£6.50</div>
+            </li>
+            <li>
+              <div class="menu-item">
+                <div class="name">Chocolate Lava Cake</div>
+                <div class="desc">A rich chocolate cake with a molten center.</div>
+              </div>
+              <div class="price">£7.00</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Restro - All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- AI Chat Widget (Classic) -->
+  <div id="chat-widget" class="chat-widget">
+    <div class="chat-header">
+      <h4>AI Assistant</h4>
+      <button id="chat-toggle" class="chat-toggle">×</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      <div class="message bot">Hello! I'm your AI assistant. How can I help you today?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="Type your message..." />
+      <button id="chat-send">Send</button>
+    </div>
   </div>
 
-  <!-- Morning -->
-  <section class="menu-section" id="morning">
-    <h2>Morning Menu</h2>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="https://source.unsplash.com/400x300/?breakfast" alt="Breakfast">
-        <h3>Eggs Benedict</h3>
-        <p>Perfectly poached eggs with hollandaise sauce on toasted muffins.</p>
-      </div>
-      <div class="menu-card">
-        <img src="https://source.unsplash.com/400x300/?coffee" alt="Coffee">
-        <h3>Cappuccino</h3>
-        <p>Rich espresso topped with velvety milk foam.</p>
-      </div>
-    </div>
-  </section>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/chat.js"></script>
 
-  <!-- Lunch -->
-  <section class="menu-section" id="lunch">
-    <h2>Lunchtime Favorites</h2>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="https://source.unsplash.com/400x300/?burger" alt="Burger">
-        <h3>Classic Burger</h3>
-        <p>Chargrilled beef patty with fresh toppings and homemade sauce.</p>
-      </div>
-      <div class="menu-card">
-        <img src="https://source.unsplash.com/400x300/?salad" alt="Salad">
-        <h3>Caesar Salad</h3>
-        <p>Crisp romaine, parmesan, and creamy Caesar dressing.</p>
-      </div>
-    </div>
-  </section>
+</body>
 
-  <!-- Afternoon -->
-  <section class="menu-section" id="afternoon">
-    <h2>Afternoon Delights</h2>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="https://source.unsplash.com/400x300/?dessert" alt="Dessert">
-        <h3>Chocolate Cake</h3>
-        <p>Moist chocolate layers with ganache frosting.</p>
-      </div>
-      <div class="menu-card">
-        <img src="https://source.unsplash.com/400x300/?tea" alt="Tea">
-        <h3>Afternoon Tea</h3>
-        <p>Selection of teas served with pastries and scones.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Evening -->
-  <section class="menu-section" id="evening">
-    <h2>Evening Specials</h2>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="https://source.unsplash.com/400x300/?steak" alt="Steak">
-        <h3>Grilled Sirloin</h3>
-        <p>Juicy sirloin steak served with garlic butter and fries.</p>
-      </div>
-      <div class="menu-card">
-        <img src="https://source.unsplash.com/400x300/?pasta" alt="Pasta">
-        <h3>Seafood Pasta</h3>
-        <p>Fresh prawns and mussels in creamy garlic sauce.</p>
-      </div>
-    </div>
-  </section>
-</main>
+</html>

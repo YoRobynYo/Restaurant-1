@@ -1,11 +1,90 @@
-<main class="gallery-page container">
-  <h1>Our Gallery</h1>
-  <p>Explore the flavors, atmosphere, and moments that make Restro special.</p>
-  <p>Choose how you want your special menu and it will reflect your dishes for serving</p>
-  <div class="gallery-grid">
-    <img src="Images/gallery/menu-1.png" alt="Menu 1">
-    <img src="Images/gallery/menu-2.png" alt="Menu 2">
-    <img src="Images/gallery/menu-3.png" alt="Menu 3">
-    <img src="Images/gallery/menu-4.png" alt="Menu 4">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Restro</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Restro</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <!-- This is the consistent CTA on every page -->
+      <nav class="nav-cta">
+        <a href="reservation.html" class="btn-primary">Book a Reservation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Our Gallery</h1>
+      <p class="lead">A taste of the atmosphere and the delicious food we're proud to serve every day.</p>
+
+      <div class="grid-3" style="margin-top: 30px;">
+        <figure class="dish-card">
+          <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80"
+            alt="A burger">
+        </figure>
+        <figure class="dish-card">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+            alt="Restaurant interior">
+        </figure>
+        <figure class="dish-card">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80"
+            alt="A chef">
+        </figure>
+        <figure class="dish-card">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+            alt="A salad">
+        </figure>
+        <figure class="dish-card">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+            alt="Happy customers">
+        </figure>
+        <figure class="dish-card">
+          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=800&q=80"
+            alt="Sunday roast">
+        </figure>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Restro - All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- AI Chat Widget (Classic) -->
+  <div id="chat-widget" class="chat-widget">
+    <div class="chat-header">
+      <h4>AI Assistant</h4>
+      <button id="chat-toggle" class="chat-toggle">×</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      <div class="message bot">Hello! I'm your AI assistant. How can I help you today?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="Type your message..." />
+      <button id="chat-send">Send</button>
+    </div>
   </div>
-</main>
+
+  <script src="scripts/main.js"></script>
+  <script src="scripts/chat.js"></script>
+
+</body>
+
+</html>

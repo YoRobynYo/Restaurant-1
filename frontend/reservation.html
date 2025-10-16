@@ -1,64 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Reservation — Restro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Reservation - Restro</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">Restro</div>
+      <a href="index.html" class="brand">Restro</a>
       <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
         <a href="gallery.html">Gallery</a>
         <a href="about.html">About</a>
-        <a href="reservation.html" class="active">Reservation</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <button class="btn-primary nav-cta" onclick="location.href='reservation.html'">Book</button>
+      <nav class="nav-cta">
+        <a href="reservation.html" class="btn-primary active">Book a Reservation</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <section class="container">
-      <h1>Reserve a table</h1>
-      <p class="lead">Quick booking for lunch, dinner or private events. We'll send confirmation by email or phone.</p>
+    <div class="container">
+      <h1>Book Your Table</h1>
+      <p class="lead">We recommend booking in advance, especially for weekends. You can also use our AI Assistant to
+        start your booking!</p>
 
-      <div class="reservation-grid">
-        <form id="reservationForm" class="reservation-form">
-          <label>Full name<input name="name" required></label>
-          <label>Email<input name="email" type="email" required></label>
-          <label>Phone<input name="phone"></label>
-          <label>Date<input name="date" type="date" required></label>
-          <label>Time<select name="time" required>
-              <option>18:00</option>
-              <option>18:30</option>
-              <option>19:00</option>
-              <option>19:30</option>
-            </select></label>
-          <label>Guests<input name="guests" type="number" min="1" max="20" value="2"></label>
-          <button class="btn-primary" type="submit">Request Reservation</button>
-        </form>
-
-        <aside class="reservation-info">
-          <h3>Our location</h3>
-          <p>123 Food Lane, London</p>
-          <div class="map-placeholder">Map would go here (replace with embedded map)</div>
-          <h4>Private events</h4>
-          <p>Contact us for group bookings and event menus.</p>
-        </aside>
+      <div class="reservation-grid" style="margin-top: 30px;">
+        <div>
+          <h3>Reservation Request Form</h3>
+          <p>Please fill out the form below. A member of our team will call you to confirm your booking.</p>
+          <form id="reservationForm" style="margin-top: 15px;">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="number" name="guests" placeholder="Number of Guests" min="1" required>
+            <input type="date" name="date" required>
+            <input type="time" name="time" required>
+            <button type="submit" class="btn-primary">Request Booking</button>
+          </form>
+        </div>
+        <div>
+          <h3>Book by Phone</h3>
+          <p>
+            Prefer to speak to someone? Give us a call during our opening hours.
+          </p>
+          <p style="font-size: 1.2rem; font-weight: bold; margin-top: 10px;">
+            +44 812 560
+          </p>
+          <h3 style="margin-top: 20px;">Our Hours</h3>
+          <p>
+            Mon - Sat: 11:00 AM - 10:00 PM<br>
+            Sun: Closed
+          </p>
+        </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container small">© 2025 Restro</div>
+    <div class="container">
+      <p>&copy; 2025 Restro - All rights reserved.</p>
+    </div>
   </footer>
+
+  <!-- AI Chat Widget (Classic) -->
+  <div id="chat-widget" class="chat-widget">
+    <div class="chat-header">
+      <h4>AI Assistant</h4>
+      <button id="chat-toggle" class="chat-toggle">×</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      <div class="message bot">Hello! I'm your AI assistant. How can I help you today?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="Type your message..." />
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
+
   <script src="scripts/main.js"></script>
+  <script src="scripts/chat.js"></script>
+
 </body>
 
 </html>

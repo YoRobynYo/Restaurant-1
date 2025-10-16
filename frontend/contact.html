@@ -1,65 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Blog — Restro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Restro</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">Restro</div>
+      <a href="index.html" class="brand">Restro</a>
       <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
         <a href="gallery.html">Gallery</a>
         <a href="about.html">About</a>
-        <a href="blog.html" class="active">Blog</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <button class="btn-primary nav-cta" onclick="location.href='reservation.html'">Book</button>
+      <!-- This is the consistent CTA on every page -->
+      <nav class="nav-cta">
+        <a href="reservation.html" class="btn-primary">Book a Reservation</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <section class="container">
-      <h1>From the Kitchen</h1>
-      <p class="lead">Stories, recipes, and behind-the-scenes.</p>
+    <div class="container">
+      <h1>Get In Touch</h1>
+      <p class="lead">We'd love to hear from you. Whether it's a question about our menu, a reservation query, or
+        feedback on your visit.</p>
 
-      <div class="grid-3">
-        <article class="post">
-          <img src="https://images.unsplash.com/photo-1512058564366-c9e3b9f1b6b6?auto=format&fit=crop&w=800&q=60"
-            alt="post1" />
-          <h3>How we make our tart</h3>
-          <p>Step-by-step from crust to finishing glaze.</p>
-          <a href="#" class="read-more">Read more</a>
-        </article>
-
-        <article class="post">
-          <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=60"
-            alt="post2" />
-          <h3>Meet the farmers</h3>
-          <p>The local producers who supply our kitchen.</p>
-          <a href="#" class="read-more">Read more</a>
-        </article>
-
-        <article class="post">
-          <img src="https://images.unsplash.com/photo-1481931715705-36f3f88e6b3e?auto=format&fit=crop&w=800&q=60"
-            alt="post3" />
-          <h3>Seasonal menu guide</h3>
-          <p>What to expect this season and why.</p>
-          <a href="#" class="read-more">Read more</a>
-        </article>
+      <div class="reservation-grid" style="margin-top: 30px;">
+        <div>
+          <h3>Send Us a Message</h3>
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+        </div>
+        <div>
+          <h3>Contact Details</h3>
+          <p>
+            <strong>Address:</strong><br>
+            123 Tech Avenue, Restro-Street
+          </p>
+          <p>
+            <strong>Phone:</strong><br>
+            +44 123456
+          </p>
+          <p>
+            <strong>Hours:</strong><br>
+            Mon - Sat: 11:00 AM - 10:00 PM<br>
+            Sun: Closed
+          </p>
+        </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container small">© 2025 Restro</div>
+    <div class="container">
+      <p>&copy; 2025 Restro - All rights reserved.</p>
+    </div>
   </footer>
+
+  <!-- AI Chat Widget (Classic) -->
+  <div id="chat-widget" class="chat-widget">
+    <div class="chat-header">
+      <h4>AI Assistant</h4>
+      <button id="chat-toggle" class="chat-toggle">×</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      <div class="message bot">Hello! I'm your AI assistant. How can I help you today?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="Type your message..." />
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
+
   <script src="scripts/main.js"></script>
+  <script src="scripts/chat.js"></script>
+
 </body>
 
 </html>

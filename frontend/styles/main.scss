@@ -1,147 +1,276 @@
-// Basic variables
-$bg: #fffaf5;
-$accent: #c06314; // warm amber
-$text: #2b2b2b;
-$muted: #6b6b6b;
+/* --- Variables & Base --- */
+:root {
+  --primary-color: #d48a47;
+  --primary-dark: #b36b2f;
+  --secondary-color: #3a3a3a;
+  --background-light: #fdfcfa;
+  --text-light: #f0f0f0;
+  --text-dark: #3a3a3a;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Lato", sans-serif;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --border-radius: 8px;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap");
 
 * {
-  box-sizing: border-box
-}
-
-html,
-body {
-  height: 100%
+  box-sizing: border-box;
 }
 
 body {
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
-  color: $text;
-  background: linear-gradient(180deg, #fff 0%, #fffaf5 100%);
-  margin: 0
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background-color: var(--background-light);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* On the homepage, disable scrolling */
+body.hero-page {
+  height: 100%;
+  overflow: hidden;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 24px
+  padding: 24px;
 }
 
 .lead {
-  color: $muted;
+  color: #6b6b6b;
 }
 
-/* Header */
+/* --- Global Button Styles --- */
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  color: white;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 10px 22px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* --- Header Styles (FINAL CORRECTED VERSION) --- */
 .site-header {
-  background: #fff;
+  background: white;
   border-bottom: 1px solid #eee;
+  padding: 16px 0;
   position: sticky;
   top: 0;
-  z-index: 30
+  z-index: 100;
 }
 
 .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
+  /* Pushes items to the edges */
 }
 
 .brand {
-  font-weight: 800;
-  color: $accent;
-  font-size: 1.25rem
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+/* Logo Image Style */
+#logo img {
+  height: 60px;
+  /* You can adjust this value to make the logo bigger or smaller */
+  width: auto;
+  /* This keeps the logo's proportions correct */
+  display: block;
+  /* Helps prevent extra space below the image */
+}
+
+.hero-page #logo img {
+  height: 80px;
+  /* A bit larger for the hero page */
+}
+
+.main-nav {
+  flex-grow: 1;
+  /* Allows the nav to fill the middle space */
+  text-align: center;
+  /* Centers the links within that space */
 }
 
 .main-nav a {
-  margin: 0 10px;
-  color: $muted;
-  text-decoration: none
+  margin: 0 16px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
 }
 
-.main-nav a.active {
-  color: $text;
-  font-weight: 600
-}
-
-/* Buttons */
-.btn-primary {
-  background: $accent;
-  color: white;
+/* Home Button in Navigation */
+.nav-home-btn {
+  background: var(--primary-color);
+  color: white !important;
+  /* Use !important to override other link styles */
   padding: 10px 16px;
   border-radius: 8px;
   text-decoration: none;
-  display: inline-block
+  display: inline-block;
+  transition: background 0.3s ease;
 }
 
-/* --- ✅ NEW: GLOBAL CARD STYLE --- */
-/* Global Card Style (for Menu, Gallery, Homepage, etc.) */
+.nav-home-btn:hover {
+  background: var(--primary-dark);
+}
+
+.nav-cta {
+  /* This space is kept for balance */
+}
+
+/* Styles for the transparent header on the homepage */
+.hero-page .site-header {
+  position: absolute;
+  background: transparent;
+  border-bottom: none;
+  width: 100%;
+}
+
+.hero-page .brand,
+.hero-page .main-nav a {
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-page .main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.hero-page .main-nav a:hover::after,
+.hero-page .main-nav a.active::after {
+  width: 100%;
+}
+
+.hero-page .nav-cta .btn-primary {
+  background: white;
+  color: var(--primary-color);
+}
+
+/* --- Full-Screen Hero --- */
+.hero-fullscreen {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  color: white;
+  font-family: var(--font-serif);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content .lead {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  /* This creates the space between the buttons */
+  margin-top: 40px;
+  /* Adds space above the buttons */
+}
+
+.hero-content .hero-actions .btn-primary {
+  padding: 16px 40px;
+  font-size: 1.3rem;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- Content Page Styles --- */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
 .dish-card {
   background: white;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .04);
+  box-shadow: var(--shadow-md);
 }
 
 .dish-card img {
   width: 100%;
-  height: 200px;
-  /* This sets the consistent image height */
+  height: 220px;
   object-fit: cover;
 }
 
 .dish-card figcaption {
-  padding: 12px;
+  padding: 20px;
 }
 
-/* Global Grid Style */
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* This is the fix: Force exactly 3 columns */
-  gap: 24px;
-  /* This adds a bit more space like we wanted */
-}
-
-/* --- END IMPROVED GRID SYSTEM --- */
-
-/* Hero Section */
-.hero {
-  padding: 48px 0
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 480px;
-  gap: 32px;
-  align-items: center
-}
-
-.hero-copy h1 {
-  font-size: 2.25rem;
-  margin: 0
-}
-
-.hero-media img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 12px
-}
-
-/* About / team / etc. */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 22px;
-  align-items: center
-}
-
-/* Menu */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* Responsive columns */
   gap: 24px;
   margin-top: 24px;
 }
@@ -151,16 +280,12 @@ body {
   padding: 24px;
   border-radius: 12px;
   border: 1px solid #eee;
-  /* A very subtle border */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .03);
-  /* A very subtle shadow */
+  box-shadow: var(--shadow-sm);
 }
 
 .menu-category h2 {
   margin-top: 0;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 12px;
-  margin-bottom: 12px;
+  color: var(--primary-dark);
 }
 
 .menu-category ul {
@@ -177,46 +302,185 @@ body {
   border-bottom: 1px dashed #eee;
 }
 
-.menu-category li:last-child {
-  border-bottom: none;
-}
-
 .menu-item .name {
   font-weight: 700;
 }
 
 .menu-item .desc {
-  color: $muted;
+  color: #6b6b6b;
   font-size: 0.9rem;
 }
 
-/* footer */
-.site-footer {
-  background: #fff;
-  padding: 28px 0;
-  border-top: 1px solid #eee;
-  margin-top: 40px
+/* --- Forms --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* Adds space between fields */
 }
 
-/* --- ✅ NEW: IMPROVED RESPONSIVE STYLES --- */
-@media (max-width: 900px) {
+input,
+textarea,
+select {
+  padding: 12px 15px;
+  /* Increased padding */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #f9f9f9;
+  /* Light grey background */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .hero-grid,
-  .about-grid {
-    grid-template-columns: 1fr;
+/* Style for when a user clicks into a box */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  /* Removes the default blue glow */
+  border-color: var(--primary-color);
+  /* Changes border to your brand orange */
+  box-shadow: 0 0 0 3px rgba(212, 138, 71, 0.2);
+  /* Adds a soft orange glow */
+}
+
+/* Also needed for the reservation page layout */
+.reservation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* --- Footer --- */
+.site-footer {
+  background: var(--background-dark);
+  color: var(--text-light);
+  padding: 40px 0;
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* --- AI Chat Widget (Glassmorphism Effect) --- */
+.chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 600px;
+  /* Kept your desired height */
+
+  /* The Glassmorphism Effect */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 16px;
+  /* Slightly larger radius */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+  /* Important for keeping the glass effect contained */
+}
+
+.chat-header {
+  padding: 16px;
+  /* Made the header slightly more transparent to match the glass */
+  background: rgba(212, 138, 71, 0.8);
+  /* var(--primary-color) with transparency */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  /* Prevents the header from shrinking */
+}
+
+.chat-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  /* Removed the solid background to let the glass effect show through */
+  background: transparent;
+  display: flex;
+  /* Added for better message alignment */
+  flex-direction: column;
+  /* Added for better message alignment */
+}
+
+.chat-input {
+  display: flex;
+  padding: 12px;
+  /* Made the input area semi-transparent as well */
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+  /* Prevents the input from shrinking */
+}
+
+.chat-input input {
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 20px;
+  flex: 1;
+}
+
+.chat-input input::placeholder {
+  color: #555;
+}
+
+.message {
+  padding: 8px 12px;
+  border-radius: 18px;
+  max-width: 80%;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.message.bot {
+  background: rgba(240, 240, 240, 0.9);
+  /* Slightly transparent light grey */
+  color: #333;
+  align-self: flex-start;
+}
+
+.message.user {
+  background: var(--primary-color);
+  color: white;
+  align-self: flex-end;
+  /* This was missing, it aligns user messages to the right */
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 900px) {
+  .header-inner {
+    /* Stack header items on smaller tablets */
+    flex-direction: column;
+    gap: 15px;
   }
 
   .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-    /* 2 columns on tablets */
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 600px) {
   .grid-3 {
     grid-template-columns: 1fr;
-    /* 1 column on mobile phones */
   }
 }
-
-/* --- END RESPONSIVE STYLES --- */

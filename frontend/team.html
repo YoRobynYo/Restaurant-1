@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Reservation - Restro</title>
+  <title>Our Team - Restro</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
@@ -12,22 +12,20 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand">Restro</a>
+      <a href="index.html" class="brand" id="logo">
+        <img src="Images/brand/Restro-2.png" alt="Restro Logo">
+      </a>
       <nav class="main-nav">
-        <a href="index.html">Home</a>
+        <a href="index.html" class="nav-home-btn">Home</a>
         <a href="menu.html">Menu</a>
         <a href="gallery.html">Gallery</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
-
-      <!-- consistent CTA on every page -->
       <nav class="nav-cta">
         <a href="reservation.html" class="btn-primary">Book a Reservation</a>
       </nav>
     </div>
-
-
   </header>
 
   <main>
@@ -35,25 +33,64 @@
       <h1>Meet the Team</h1>
       <p class="lead">Chefs, servers and behind-the-scenes superheroes.</p>
 
-      <div class="grid-3 team-grid">
-        <div class="member">
+      <div class="grid-3" style="margin-top: 30px;">
+
+        <figure class="dish-card">
           <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=60"
-            alt="chef" />
-          <h4>Chef Marco</h4>
-          <p>Head chef, seasonal menus & recipe development.</p>
-        </div>
-        <div class="member">
+            alt="Chef Marco" />
+          <figcaption>
+            <h4>Chef Marco</h4>
+            <p>Head chef, seasonal menus & recipe development.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="dish-card">
           <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=60"
-            alt="manager" />
-          <h4>Alice</h4>
-          <p>Front of house and guest experience.</p>
-        </div>
-        <div class="member">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=60"
-            alt="pastry" />
-          <h4>Sam</h4>
-          <p>Pastry chef and dessert lead.</p>
-        </div>
+            alt="Alice, Manager" />
+          <figcaption>
+            <h4>Alice</h4>
+            <p>Front of house and guest experience.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="dish-card">
+          <img src="https://images.unsplash.com/photo-1581382575275-97901c2635b7?auto=format&fit=crop&w=600&q=60"
+            alt="Sam, Pastry Chef" />
+          <figcaption>
+            <h4>Sam</h4>
+            <p>Pastry chef and dessert lead.</p>
+          </figcaption>
+        </figure>
+
+        <!-- NEW TEAM MEMBERS -->
+
+        <figure class="dish-card">
+          <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=600&q=60"
+            alt="David, Sommelier" />
+          <figcaption>
+            <h4>David</h4>
+            <p>Sommelier and beverage director.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="dish-card">
+          <img src="https://images.unsplash.com/photo-1568602471322-7826e3a4e694?auto=format&fit=crop&w=600&q=60"
+            alt="John, Sous Chef" />
+          <figcaption>
+            <h4>John</h4>
+            <p>Sous Chef and kitchen operations.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="dish-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=60"
+            alt="Michael, Bar Manager" />
+          <figcaption>
+            <h4>Michael</h4>
+            <p>Bar manager and mixologist.</p>
+          </figcaption>
+        </figure>
+
       </div>
     </section>
   </main>
@@ -64,7 +101,25 @@
     </div>
   </footer>
 
+  <!-- AI Chat Widget (Classic) -->
+  <div id="chat-widget" class="chat-widget">
+    <div class="chat-header">
+      <h4>AI Assistant</h4>
+      <button id="chat-toggle" class="chat-toggle">×</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      <div class="message bot">Hello! I'm your AI assistant. How can I help you today?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="Type your message..." />
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
+
+
   <script src="scripts/main.js"></script>
+  <script src="scripts/chat.js"></script>
+
 </body>
 
 </html>
